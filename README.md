@@ -15,7 +15,7 @@ _**Installation instructions:**_
 
 5- You can now move Edge to a second monitor or make its window really small to keep it out of the way
 
-6- Done! Double-click the "Game Voice Reader" file to run it.
+6- Done! Double-click the "Game Voice Reader" file to run it. Running the script as administrator improves its compatibility in some games.
 
 _**Usage instructions:**_
 
