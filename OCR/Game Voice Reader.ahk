@@ -1,5 +1,7 @@
 ﻿#Requires AutoHotkey v2
 #include .\Lib\OCR.ahk
+InstallKeybdHook 1, 1
+#UseHook 1
 
 CoordMode "Mouse", "Screen"
 CoordMode "ToolTip", "Screen"
@@ -11,15 +13,8 @@ global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, 
 Loop {
 	if toRun == 0
 	{
-		XButton2::"
-		if GetKeyState("XButton2", "P")
-		{
-			toRun := 1
-		}
-		else
-		{
-			Sleep 10
-		}
+		KeyWait "XButton2" , "D"
+		toRun := 1
 	}
 	else if toRun == 1
 	{
