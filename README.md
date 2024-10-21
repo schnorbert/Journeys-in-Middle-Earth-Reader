@@ -1,13 +1,13 @@
 # GameVoiceReader
 Reads texts on the screen out loud, works with games - OCR Script for AutoHotkey
 
-This is a proo-of-concept autohotkey script - Feel free to improve and modify it!
+This is a proof-of-concept autohotkey script - Feel free to improve and modify it!
 
 _**Installation instructions:**_
 
 1- Install Autohotkey: https://www.autohotkey.com/
 
-2- Put the "OCR" folder in your root C: drive. Path should look like this: C:\OCR
+2- Place the "OCR" folder in your root C: drive. Path should look like this: C:\OCR
 
 3- Open the Edge browser
 
