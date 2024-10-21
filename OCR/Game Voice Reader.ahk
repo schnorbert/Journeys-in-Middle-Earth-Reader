@@ -41,6 +41,7 @@ Loop {
 			
 			toRun := 2
 		}
+		Sleep 50
 	}
 	else if toRun == 2
 	{
@@ -89,6 +90,5 @@ Highlight(x?, y?, w?, h?, showTime:=0, color:="Red", d:=2) {
 
 f9::
 {
-;FileDelete "C:\OCR\*.txt"
 exitapp
 }
