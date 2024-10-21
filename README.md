@@ -27,7 +27,7 @@ _**Usage instructions:**_
 
 4- Release the mouse side button and after about 1 second it will read the text it detects in the box
 
-5- After it read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" on the name run on the cloud and are AI-based and generally better
+5- After it read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
 
 6- Press F9 to stop the script
 
