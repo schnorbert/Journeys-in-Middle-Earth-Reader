@@ -29,8 +29,12 @@ _**Usage instructions:**_
 
 5- After it read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" on the name run on the cloud and are AI-based and generally better
 
+6- Press F9 to stop the script
+
 _**Known issues:**_
 
 -Folder the script work on is hard-coded, should work wherever
+
 -The script will delete any and all .txt files inside the OCR folder
+
 -Arrow keys don't work while script is running
