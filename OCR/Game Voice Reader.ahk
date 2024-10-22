@@ -9,7 +9,7 @@ CoordMode "ToolTip", "Screen"
 DllCall("SetThreadDpiAwarenessContext", "ptr", -3) ; Needed for multi-monitor setups with differing DPIs
 OCR.PerformanceMode := 1 ; Uncommenting this makes the OCR more performant, but also more CPU-heavy
 
-global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0
+global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0, bX := 0, bY := 0, bW := 0, bH := 0
 Loop {
 	if toRun == 0
 	{
@@ -32,10 +32,42 @@ Loop {
 			MouseGetPos(&x, &y)
 		}
 		
-		Highlight(x-w//2, y-h//2, w, h)
-		;ToolTip(OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text, , y+h//2+10)
+		inArea := 0
 		
-		if !GetKeyState("XButton2", "P")
+		if (bH != 0) && (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2)
+		{
+			inArea := 1
+			
+			x := bX
+			y := bY
+			h := bH
+			w := bW
+			Highlight(bX-bW//2, bY-bH//2, bW, bH)
+		}
+		else
+		{
+			Highlight(x-w//2, y-h//2, w, h)
+		}
+		
+		if GetKeyState("LButton", "P")
+		{
+			if (!inArea)
+			{
+				bX := x
+				bY := y
+				bH := h
+				bW := w
+			}
+			else
+			{
+				bX := 0
+				bY := 0
+				bH := 0
+				bW := 0
+			}
+		}
+		
+		if !GetKeyState("XButton2", "P") || GetKeyState("LButton", "P")
 		{
 			toSay := OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text
 			Highlight(-1, -1, 0, 0)
@@ -49,7 +81,14 @@ Loop {
 			
 			toRun := 2
 		}
-		Sleep 50
+		else if GetKeyState("RButton")
+		{
+			toRun := 0
+			Highlight(-1, -1, 0, 0)
+			Sleep 1200
+		}
+		
+		Sleep 25
 	}
 	else if toRun == 2
 	{
@@ -62,8 +101,9 @@ Loop {
 			
 			WinActivate prevWin
 			
-			hbuffer := 9
+			hbuffer := 7
 			toRun := 0
+			Sleep 200
 		}
 	}
 }
