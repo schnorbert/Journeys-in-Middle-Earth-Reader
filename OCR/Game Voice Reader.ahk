@@ -9,7 +9,7 @@ CoordMode "ToolTip", "Screen"
 DllCall("SetThreadDpiAwarenessContext", "ptr", -3) ; Needed for multi-monitor setups with differing DPIs
 OCR.PerformanceMode := 1 ; Uncommenting this makes the OCR more performant, but also more CPU-heavy
 
-global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0
+global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0
 Loop {
 	if toRun == 0
 	{
@@ -23,7 +23,15 @@ Loop {
 		Up::global h+=step
 		Down::global h-=(h < minsize ? 0 : step)
 		
-		MouseGetPos(&x, &y)
+		if (hbuffer > 0)
+		{
+			hbuffer := hbuffer - 1
+		}
+		else
+		{
+			MouseGetPos(&x, &y)
+		}
+		
 		Highlight(x-w//2, y-h//2, w, h)
 		;ToolTip(OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text, , y+h//2+10)
 		
@@ -54,6 +62,7 @@ Loop {
 			
 			WinActivate prevWin
 			
+			hbuffer := 14
 			toRun := 0
 		}
 	}
