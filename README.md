@@ -29,9 +29,11 @@ _**Usage instructions:**_
 
 5- After it read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
 
-6- Press right click while the red box is visible to cancel scan. Press left click while box is visible to save that selected area, mousing over that area will automatically select it, click a saved area to unsave it.
+6- Press left click while box is visible to save that selected area, mousing over that area will automatically select it, click a saved area to unsave it.
 
-7- Press F9 to stop the script
+7- Press right click while the red box is visible to cancel scan. 
+
+8- Press F9 to stop the script
 
 _**Known issues:**_
 
