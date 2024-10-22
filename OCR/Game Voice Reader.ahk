@@ -62,7 +62,7 @@ Loop {
 			
 			WinActivate prevWin
 			
-			hbuffer := 14
+			hbuffer := 10
 			toRun := 0
 		}
 	}
