@@ -23,14 +23,14 @@ Loop {
 		Up::global h+=step
 		Down::global h-=(h < minsize ? 0 : step)
 		
-		if (hbuffer > 0)
-		{
-			hbuffer := hbuffer - 1
-		}
-		else
-		{
+		;if (hbuffer > 0)
+		;{
+		;	hbuffer := hbuffer - 1
+		;}
+		;else
+		;{
 			MouseGetPos(&x, &y)
-		}
+		;}
 		
 		inArea := 0
 		
@@ -101,7 +101,7 @@ Loop {
 			
 			WinActivate prevWin
 			
-			hbuffer := 7
+			;hbuffer := 7
 			toRun := 0
 			Sleep 200
 		}
