@@ -25,7 +25,7 @@ _**Usage instructions:**_
 
 3- A red box will appear, you can change its size with arrow keys
 
-4- Release the mouse side button and after about 1 second it will read the text it detects in the box
+4- Release the mouse side button and after about 1 second it will read the text it detects in the box (Click the side button instead of holding to read the same area previously selected.)
 
 5- After it read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
 
