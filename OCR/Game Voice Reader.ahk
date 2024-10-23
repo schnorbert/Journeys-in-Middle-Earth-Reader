@@ -21,21 +21,24 @@ if !WinExist('page.txt -')
 f9::exitapp
 ;#SuspendExempt False
 
-global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0, bX := 0, bY := 0, bW := 0, bH := 0
+global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0, bX := 0, bY := 0, bW := 0, bH := 0, cX := 0, cY := 0
 Loop {
 	if toRun == 0
 	{
 		Suspend 1
 		KeyWait "XButton2" , "D"
+		MouseGetPos(&x, &y)
+		cX := x
+		cY := y
 		toRun := 1
 	}
 	else if toRun == 1
 	{
 		Suspend 0
-		Right::global w+=step
-		Left::global w-=(w < minsize ? 0 : step)
-		Up::global h+=step
-		Down::global h-=(h < minsize ? 0 : step)
+		;Right::global w+=step
+		;Left::global w-=(w < minsize ? 0 : step)
+		;Up::global h+=step
+		;Down::global h-=(h < minsize ? 0 : step)
 		
 		;if (hbuffer > 0)
 		;{
@@ -46,14 +49,22 @@ Loop {
 			MouseGetPos(&x, &y)
 		;}
 		
+		w := x-cX
+		h := y-cY
+		
 		inArea := 0
+		if (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2)
+		{
+			inArea := 1
+		}
+		
+		x := x-w//2
+		y := y-h//2
 		
 		if (bH != 0)
 		{
-			if (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2)
+			if (inArea)
 			{
-				inArea := 1
-				
 				x := bX
 				y := bY
 				h := bH
@@ -93,7 +104,7 @@ Loop {
 		if !GetKeyState("XButton2", "P") || GetKeyState("LButton", "P")
 		{
 			toSay := OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text
-			Highlight(-1, -1, 0, 0, "Red")
+			Highlight(-100, -100, 0, 0, "Red")
 			
 			FileDelete "C:\OCR\*.txt"
 			FileAppend toSay, "C:\OCR\page.txt"
@@ -108,7 +119,7 @@ Loop {
 		else if GetKeyState("RButton")
 		{
 			toRun := 0
-			Highlight(-1, -1, 0, 0, "Red")
+			Highlight(-100, -100, 0, 0, "Red")
 			Sleep 1200
 		}
 		
@@ -119,7 +130,7 @@ Loop {
 		if WinActive("page.txt -")
 		{
 			Send "{F5}"
-			Sleep 100
+			Sleep 80
 			Send "^+U"
 			Sleep 1100
 			
