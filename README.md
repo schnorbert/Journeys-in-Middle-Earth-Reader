@@ -22,7 +22,7 @@ _**Usage instructions:**_
 
 2- Hold down your "mouse side button 2" (The one that goes "forwards") and drag the red box on the text to be read
 
-3- After it has read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
+3- After it has read the text you can open Edge and click on the button "Voice Options" on the top-right to choose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
 
 4- Press left click while the red box is visible to save that selected area, mousing over that saved area will automatically select it for quick re-reading of the same area, left click on a saved area to unsave it.
 
