@@ -11,7 +11,7 @@ _**Installation instructions:**_
 
 3- Double-click the "Game Voice Reader" file to run it. Running the script as administrator improves its compatibility in some games.
 
-4- Don't close the Edge window that opens don't switch tabs on that window while script is active.
+4- Don't close the Edge window that opens and don't switch tabs on that window while the script is active.
 You can move the Edge window to a second monitor or make its window really small to keep it out of the way.
 
 5- Done!
@@ -24,11 +24,11 @@ _**Usage instructions:**_
 
 3- A red box will appear, you can change its size with arrow keys
 
-4- Release the mouse side button and after about 1 second it will read the text it detects in the box (Click the side button instead of holding to read the same area previously selected.)
+4- Release the mouse side button and after about 1 second it will read the text it detects in the box
 
-5- After it read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
+5- After it has read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
 
-6- Press left click while box is visible to save that selected area, mousing over that area will automatically select it, click a saved area to unsave it.
+6- Press left click while box is visible to save that selected area, mousing over that saved area will automatically select it for quick re-reading of the same area, click a saved area to unsave it.
 
 7- Press right click while the red box is visible to cancel scan. 
 
