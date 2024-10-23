@@ -9,15 +9,29 @@ CoordMode "ToolTip", "Screen"
 DllCall("SetThreadDpiAwarenessContext", "ptr", -3) ; Needed for multi-monitor setups with differing DPIs
 OCR.PerformanceMode := 1 ; Uncommenting this makes the OCR more performant, but also more CPU-heavy
 
+if !WinExist('page.txt -')
+{
+	Run 'msedge.exe'
+	Sleep 800
+	Send 'file:///C:/OCR/page.txt'
+	Send '{Enter}'
+}
+
+;#SuspendExempt
+f9::exitapp
+;#SuspendExempt False
+
 global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0, bX := 0, bY := 0, bW := 0, bH := 0
 Loop {
 	if toRun == 0
 	{
+		Suspend 1
 		KeyWait "XButton2" , "D"
 		toRun := 1
 	}
 	else if toRun == 1
 	{
+		Suspend 0
 		Right::global w+=step
 		Left::global w-=(w < minsize ? 0 : step)
 		Up::global h+=step
@@ -77,8 +91,9 @@ Loop {
 			
 			prevWin := WinGetID("A")
 			
-			WinActivate "Edge"
+			WinActivate "page.txt -"
 			
+			Suspend 1
 			toRun := 2
 		}
 		else if GetKeyState("RButton")
@@ -92,7 +107,7 @@ Loop {
 	}
 	else if toRun == 2
 	{
-		if WinActive("Edge")
+		if WinActive("page.txt -")
 		{
 			Send "{F5}"
 			Sleep 100
@@ -135,9 +150,4 @@ Highlight(x?, y?, w?, h?, showTime:=0, color:="Red", d:=2) {
 		Highlight()
 	} else if showTime < 0
 		SetTimer(Highlight, -Abs(showTime))
-}
-
-f9::
-{
-exitapp
 }

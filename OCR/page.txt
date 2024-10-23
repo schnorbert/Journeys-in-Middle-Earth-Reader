@@ -1,1 +1,9 @@
-Drag this file into Edge, then start the Game Voice Reader script.
+-- READY! --
+
+Keep this tab open on the Edge browser, then start the Game Voice Reader script.
+
+You can move the Edge window to a second monitor or make its window really small to keep it out of the way.
+
+Games must not be running in Exclusive Fullscreen mode.
+
+Hold down the 'side mouse button 2' to activate, read the README for more controls.

@@ -9,13 +9,12 @@ _**Installation instructions:**_
 
 2- Place the "OCR" folder in your root C: drive. Path should look like this: C:\OCR
 
-3- Open the Edge browser
+3- Double-click the "Game Voice Reader" file to run it. Running the script as administrator improves its compatibility in some games.
 
-4- Drag "page.txt" from inside the OCR folder into Edge, it will open it in a new tab, don't change tabs
+4- Don't close the Edge window that opens don't switch tabs on that window while script is active.
+You can move the Edge window to a second monitor or make its window really small to keep it out of the way.
 
-5- You can now move Edge to a second monitor or make its window really small to keep it out of the way
-
-6- Done! Double-click the "Game Voice Reader" file to run it. Running the script as administrator improves its compatibility in some games.
+5- Done!
 
 _**Usage instructions:**_
 
@@ -33,12 +32,10 @@ _**Usage instructions:**_
 
 7- Press right click while the red box is visible to cancel scan. 
 
-8- Press F9 to stop the script
+8- Press F9 while holding the "mouse side button 2" to stop the script
 
 _**Known issues:**_
 
--Folder the script work on is hard-coded, should work wherever
+-Folder the script works on is hard-coded, ideally it should work wherever
 
 -The script will delete any and all .txt files inside the OCR folder
-
--Arrow keys don't work while script is running
