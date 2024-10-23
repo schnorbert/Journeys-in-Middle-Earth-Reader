@@ -48,19 +48,28 @@ Loop {
 		
 		inArea := 0
 		
-		if (bH != 0) && (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2)
+		if (bH != 0)
 		{
-			inArea := 1
+			if (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2)
+			{
+				inArea := 1
+				
+				x := bX
+				y := bY
+				h := bH
+				w := bW
+				Highlight(bX-bW//2, bY-bH//2, bW, bH, "Red")
+			}
+			else
+			{
+				Highlight(bX-bW//2, bY-bH//2, bW, bH, "Blue")
 			
-			x := bX
-			y := bY
-			h := bH
-			w := bW
-			Highlight(bX-bW//2, bY-bH//2, bW, bH)
+				Highlight(x-w//2, y-h//2, w, h, "Red")
+			}
 		}
 		else
 		{
-			Highlight(x-w//2, y-h//2, w, h)
+			Highlight(x-w//2, y-h//2, w, h, "Red")
 		}
 		
 		if GetKeyState("LButton", "P")
@@ -84,7 +93,7 @@ Loop {
 		if !GetKeyState("XButton2", "P") || GetKeyState("LButton", "P")
 		{
 			toSay := OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text
-			Highlight(-1, -1, 0, 0)
+			Highlight(-1, -1, 0, 0, "Red")
 			
 			FileDelete "C:\OCR\*.txt"
 			FileAppend toSay, "C:\OCR\page.txt"
@@ -99,7 +108,7 @@ Loop {
 		else if GetKeyState("RButton")
 		{
 			toRun := 0
-			Highlight(-1, -1, 0, 0)
+			Highlight(-1, -1, 0, 0, "Red")
 			Sleep 1200
 		}
 		
@@ -123,10 +132,14 @@ Loop {
 	}
 }
 
-Highlight(x?, y?, w?, h?, showTime:=0, color:="Red", d:=2) {
+Highlight(x?, y?, w?, h?, color?, showTime:=0, d:=2) {
 	static guis := []
 
-	if !IsSet(x) {
+	if IsSet(color) && (color == "Res")
+	{
+		showTime := 500
+	}
+	else if !IsSet(x) {
         for _, r in guis
             r.Destroy()
         guis := []
