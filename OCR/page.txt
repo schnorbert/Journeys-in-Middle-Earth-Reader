@@ -1,6 +1,6 @@
 -- READY! --
 
-Keep this tab open on the Edge browser, then start the Game Voice Reader script.
+Keep this tab open on the Edge browser.
 
 You can move the Edge window to a second monitor or make its window really small to keep it out of the way.
 
