@@ -6,4 +6,4 @@ You can move the Edge window to a second monitor or make its window really small
 
 Games must not be running in Exclusive Fullscreen mode.
 
-Hold down the 'side mouse button 2' to activate, read the README for more controls.
+Hold down the 'side mouse button 2' and drag a box on the area to be read, read the README for more controls.

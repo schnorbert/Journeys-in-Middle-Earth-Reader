@@ -20,19 +20,15 @@ _**Usage instructions:**_
 
 1- The game must be running in either borderless full-screen or window mode, not exclusive full-screen
 
-2- Hold down your "mouse side button 2" (The one that goes "forwards")
+2- Hold down your "mouse side button 2" (The one that goes "forwards") and drag the red box on the text to be read
 
-3- A red box will appear, you can change its size with arrow keys
+3- After it has read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
 
-4- Release the mouse side button and after about 1 second it will read the text it detects in the box
+4- Press left click while the red box is visible to save that selected area, mousing over that saved area will automatically select it for quick re-reading of the same area, left click on a saved area to unsave it.
 
-5- After it has read the text you can open Edge and click on the button "Voice Options" on the top-right to chose a better voice, the ones with "Online" in the name run on the cloud and are AI-based and generally better
+5- Press right click while the red box is visible to cancel scan. 
 
-6- Press left click while box is visible to save that selected area, mousing over that saved area will automatically select it for quick re-reading of the same area, click a saved area to unsave it.
-
-7- Press right click while the red box is visible to cancel scan. 
-
-8- Press F9 while holding the "mouse side button 2" to stop the script
+6- Press F9 while holding the "mouse side button 2" to stop the script
 
 _**Known issues:**_
 
