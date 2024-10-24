@@ -12,7 +12,7 @@ OCR.PerformanceMode := 1 ; Uncommenting this makes the OCR more performant, but 
 if !WinExist('page.txt -')
 {
 	Run 'msedge.exe'
-	Sleep 800
+	Sleep 1000
 	Send 'file:///C:/OCR/page.txt'
 	Send '{Enter}'
 }
@@ -31,6 +31,14 @@ Loop {
 		cX := x
 		cY := y
 		toRun := 1
+		
+		if !WinExist('page.txt -')
+		{
+			Run 'msedge.exe'
+			Sleep 1000
+			Send 'file:///C:/OCR/page.txt'
+			Send '{Enter}'
+		}
 	}
 	else if toRun == 1
 	{
@@ -40,20 +48,20 @@ Loop {
 		;Up::global h+=step
 		;Down::global h-=(h < minsize ? 0 : step)
 		
-		;if (hbuffer > 0)
-		;{
-		;	hbuffer := hbuffer - 1
-		;}
-		;else
-		;{
+		if (hbuffer > 0)
+		{
+			hbuffer := hbuffer - 1
+		}
+		else
+		{
 			MouseGetPos(&x, &y)
-		;}
+		}
 		
 		w := x-cX
 		h := y-cY
 		
 		inArea := 0
-		if (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2)
+		if (Abs(x-bX) < bW//2) && (Abs(y-bY) < bH//2) || hbuffer > 0
 		{
 			inArea := 1
 		}
@@ -106,18 +114,28 @@ Loop {
 			toSay := OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text
 			Highlight(-100, -100, 0, 0, "Red")
 			
-			FileDelete "C:\OCR\*.txt"
-			FileAppend toSay, "C:\OCR\page.txt"
-			
-			prevWin := WinGetID("A")
-			
-			WinActivate "page.txt -"
+			if StrLen(toSay) > 0
+			{
+				FileDelete "C:\OCR\*.txt"
+				FileAppend toSay, "C:\OCR\page.txt"
+				
+				prevWin := WinGetID("A")
+				
+				WinActivate "page.txt -"
+				
+				toRun := 2
+			}
+			else
+			{
+				toRun := 0
+				Sleep 200
+			}
 			
 			Suspend 1
-			toRun := 2
 		}
 		else if GetKeyState("RButton")
 		{
+			hbuffer := 6
 			toRun := 0
 			Highlight(-100, -100, 0, 0, "Red")
 			Sleep 1200
@@ -136,7 +154,7 @@ Loop {
 			
 			WinActivate prevWin
 			
-			;hbuffer := 7
+			hbuffer := 6
 			toRun := 0
 			Sleep 200
 		}
