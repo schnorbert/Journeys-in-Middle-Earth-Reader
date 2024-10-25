@@ -21,7 +21,7 @@ if !WinExist('page.txt -')
 f9::exitapp
 ;#SuspendExempt False
 
-global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := 0, hbuffer := 0, bX := 0, bY := 0, bW := 0, bH := 0, cX := 0, cY := 0
+global w := 1200, h := 400, minsize := 5, step := 21, toRun := 0, prevWin := 0, toSay := "", hbuffer := 6, bX := 0, bY := 0, bW := 0, bH := 0, cX := 0, cY := 0
 Loop {
 	if toRun == 0
 	{
@@ -43,10 +43,6 @@ Loop {
 	else if toRun == 1
 	{
 		Suspend 0
-		;Right::global w+=step
-		;Left::global w-=(w < minsize ? 0 : step)
-		;Up::global h+=step
-		;Down::global h-=(h < minsize ? 0 : step)
 		
 		if (hbuffer > 0)
 		{
@@ -111,13 +107,31 @@ Loop {
 		
 		if !GetKeyState("XButton2", "P") || GetKeyState("LButton", "P")
 		{
-			toSay := OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text
-			Highlight(-100, -100, 0, 0, "Red")
+			if hbuffer > 0
+			{
+				prevClip := A_Clipboard
+				A_Clipboard := ""
+				Send "^c"
+				Sleep 20
+				
+				if (A_Clipboard != prevClip)
+				{
+					toSay := A_Clipboard
+					A_Clipboard := prevClip
+				}
+			}
+			
+			if StrLen(toSay) <= 0
+			{
+				toSay := OCR.FromRect(x-w//2, y-h//2, w, h,,2).Text
+				Highlight(-100, -100, 0, 0, "Red")
+			}
 			
 			if StrLen(toSay) > 0
 			{
 				FileDelete "C:\OCR\*.txt"
 				FileAppend toSay, "C:\OCR\page.txt"
+				toSay := ""
 				
 				prevWin := WinGetID("A")
 				
@@ -150,7 +164,7 @@ Loop {
 			Send "{F5}"
 			Sleep 80
 			Send "^+U"
-			Sleep 1100
+			Sleep 1000
 			
 			WinActivate prevWin
 			

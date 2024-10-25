@@ -28,7 +28,9 @@ _**Usage instructions:**_
 
 5- Press right click while the red box is visible to cancel scan. 
 
-6- Press F9 while holding the "mouse side button 2" to stop the script
+6- If you have highlighted text, then clicking "mouse side button 2" will read that text.
+
+7- Press F9 while holding the "mouse side button 2" to stop the script
 
 _**Known issues:**_
 
